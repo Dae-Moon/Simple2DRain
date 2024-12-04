@@ -6,7 +6,7 @@ Simple algorithm for displaying rain in all directions.
 [NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 # Usage
-You can compile the source code yourself or download it already from the [releases](https://github.com/Dae-Moon/Simple2DRain/releases/tag/Simple2DRain).
+You can compile the source code yourself or download it already from the [releases](https://github.com/Dae-Moon/Simple2DRain/releases/tag/Simple2DRain).\
 Run **s2dr_cs.exe**.
 
 ![alt text](https://github.com/Dae-Moon/Simple2DRain/blob/master/s2dr_cs/resources/window.png)
