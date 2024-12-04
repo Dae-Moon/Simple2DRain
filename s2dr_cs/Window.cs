@@ -78,20 +78,20 @@ namespace s2dr_cs
                 case Side.Top:
                     first.X = -offset;
                     first.Y = -offset;
-                    first.Z = Size.Width + offset;
+                    first.Z = pb_display.Size.Width + offset;
                     first.W = -offset;
                     break;
                 case Side.Right:
-                    first.X = Size.Width + offset;
+                    first.X = pb_display.Size.Width + offset;
                     first.Y = -offset;
-                    first.Z = Size.Width + offset;
-                    first.W = Size.Height + offset;
+                    first.Z = pb_display.Size.Width + offset;
+                    first.W = pb_display.Size.Height + offset;
                     break;
                 case Side.Bottom:
                     first.X = -offset;
-                    first.Y = Size.Height + offset;
-                    first.Z = Size.Width + offset;
-                    first.W = Size.Height + offset;
+                    first.Y = pb_display.Size.Height + offset;
+                    first.Z = pb_display.Size.Width + offset;
+                    first.W = pb_display.Size.Height + offset;
                     break;
             }
 
@@ -100,20 +100,20 @@ namespace s2dr_cs
                 case Side.Top:
                     second.X = -offset;
                     second.Y = -offset;
-                    second.Z = Size.Width + offset;
+                    second.Z = pb_display.Size.Width + offset;
                     second.W = -offset;
                     break;
                 case Side.Right:
-                    second.X = Size.Width + offset;
+                    second.X = pb_display.Size.Width + offset;
                     second.Y = -offset;
-                    second.Z = Size.Width + offset;
-                    second.W = Size.Height + offset;
+                    second.Z = pb_display.Size.Width + offset;
+                    second.W = pb_display.Size.Height + offset;
                     break;
                 case Side.Bottom:
                     second.X = -offset;
-                    second.Y = Size.Height + offset;
-                    second.Z = Size.Width + offset;
-                    second.W = Size.Height + offset;
+                    second.Y = pb_display.Size.Height + offset;
+                    second.Z = pb_display.Size.Width + offset;
+                    second.W = pb_display.Size.Height + offset;
                     break;
             }
 
