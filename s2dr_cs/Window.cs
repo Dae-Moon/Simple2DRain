@@ -6,10 +6,9 @@ namespace s2dr_cs
     public partial class Window : Form
     {
         readonly Random rnd = new();
-
         DateTime lastTime = DateTime.Now;
         float frameTime, frameTimeAmount;
-        S2DRSettings settings = new();
+        Settings settings = new();
         List<Vector2> data = new();
         Task currentColorDialog = null;
 
@@ -252,9 +251,9 @@ namespace s2dr_cs
         Bottom,
     }
 
-    public struct S2DRSettings
+    public struct Settings
     {
-        public S2DRSettings()
+        public Settings()
         {
             color = Color.FromArgb(255, 255, 255, 255);
             amount = 100;
@@ -277,7 +276,6 @@ namespace s2dr_cs
     {
         public static float NextSingle(this Random rnd, float min, float max)
         {
-            // Perform arithmetic in double type to avoid overflowing
             double range = (double)max - (double)min;
             double sample = rnd.NextDouble();
             double scaled = min + sample * range;
