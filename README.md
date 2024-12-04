@@ -2,7 +2,7 @@
 Simple algorithm for displaying rain in all directions.
 
 # Requirement
-[Visual Studio 2022](https://visualstudio.microsoft.com/ru/vs/).
+[Visual Studio 2022](https://visualstudio.microsoft.com/ru/vs/).\
 [NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
 # Usage
