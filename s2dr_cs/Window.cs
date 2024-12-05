@@ -70,7 +70,7 @@ namespace s2dr_cs
 
         KeyValuePair<Vector4, Vector4> GetArea(KeyValuePair<Side, Side> twoSides, float offset)
         {
-            Vector4 first = new(-offset, -offset, -offset, Size.Height + offset);
+            Vector4 first = new(-offset, -offset, -offset, pb_display.Size.Height + offset);
             Vector4 second = first;
 
             switch (twoSides.Key)
@@ -150,7 +150,7 @@ namespace s2dr_cs
                 rain?.Invoke(data[i], data[i] + dir * settings.size);
 
                 Vector2 min = new(-settings.size - 1, -settings.size - 1);
-                Vector2 max = new(Size.Width + settings.size + 1, Size.Height + settings.size + 1);
+                Vector2 max = new(pb_display.Size.Width + settings.size + 1, pb_display.Size.Height + settings.size + 1);
 
                 var end = data[i] + dir * (settings.speed * 10 * (100 * frameTime));
                 if (end.X < min.X || end.Y < min.Y || end.X > max.X || end.Y > max.Y)
