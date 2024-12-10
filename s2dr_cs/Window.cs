@@ -200,7 +200,10 @@ namespace s2dr_cs
             {
                 // Update the text box color if the user clicks OK 
                 if (MyDialog.ShowDialog(Owner) == DialogResult.OK)
+                {
                     settings.color = MyDialog.Color;
+                    tb_color_alpha_TextChanged(null, null);
+                }
 
                 currentColorDialog = null;
             });
