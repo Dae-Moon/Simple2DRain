@@ -5,12 +5,12 @@ namespace s2dr_cs
 {
     public partial class Window : Form
     {
-        readonly Random rnd = new();
-        DateTime lastTime = DateTime.Now;
-        float frameTime, frameTimeAmount;
-        Settings settings = new();
-        List<Vector2> data = new();
-        Task currentColorDialog = null;
+        private readonly Random rnd = new();
+        private DateTime lastTime = DateTime.Now;
+        private float frameTime, frameTimeAmount;
+        private Settings settings = new();
+        private List<Vector2> data = new();
+        private Task currentColorDialog;
 
         public Window()
         {
@@ -122,7 +122,7 @@ namespace s2dr_cs
 
 
 
-        void Generate()
+        private void Generate()
         {
             frameTimeAmount += frameTime;
 
@@ -141,7 +141,7 @@ namespace s2dr_cs
             }
         }
 
-        void Update(Action<Vector2, Vector2> rain)
+        private void Update(Action<Vector2, Vector2> rain)
         {
             for (int i = 0; i < data.Count; i++)
             {
@@ -183,7 +183,7 @@ namespace s2dr_cs
             panel_settings.Update();
             pb_display.Invalidate();
         }
-       
+
         private void btn_color_picker_Click(object sender, EventArgs e)
         {
             if (currentColorDialog != null)
@@ -207,7 +207,7 @@ namespace s2dr_cs
         }
 
         private void tb_color_alpha_TextChanged(object sender, EventArgs e)
-        {   
+        {
             if (int.TryParse(tb_color_alpha.Text, out int alpha))
                 settings.color = Color.FromArgb(Math.Clamp(alpha, 0, 255), settings.color);
         }
@@ -241,70 +241,5 @@ namespace s2dr_cs
             if (float.TryParse(tb_thickness.Text, out float thickness))
                 settings.thickness = thickness;
         }
-    }
-
-    public enum Side
-    {
-        Left,
-        Top,
-        Right,
-        Bottom,
-    }
-
-    public struct Settings
-    {
-        public Settings()
-        {
-            color = Color.FromArgb(255, 255, 255, 255);
-            amount = 100;
-            speed = 3;
-            size = 50;
-            angle = 90;
-            thickness = 1;
-        }
-
-        public Color color;
-        public int amount;
-
-        public float speed;
-        public float size;
-        public float angle;
-        public float thickness;
-    }
-
-    public static class Utils
-    {
-        public static float NextSingle(this Random rnd, float min, float max)
-        {
-            double range = (double)max - (double)min;
-            double sample = rnd.NextDouble();
-            double scaled = min + sample * range;
-            return (float)scaled;
-        }
-
-        public static float Normalized(this float angle)
-        {
-            if (angle < 0)
-            {
-                angle = angle + 360 * ((int)(angle / 360) + 1);
-            }
-            else if (angle >= 360)
-            {
-                angle = angle - 360 * ((int)(angle / 360));
-            }
-            // a = (360.0/65536) * ((int)(a*(65536/360.0)) & 65535);
-            return angle;
-        }
-
-        public static Vector2 ToDirection(this float angle)
-        {
-            angle = angle.Normalized() * ((float)MathF.PI / 180f);
-            var cos = MathF.Cos(angle);
-            var sin = MathF.Sin(angle);
-            return new(cos, sin);
-        }
-
-        public static Point ToPoint(this Vector2 vector2) => new((int)vector2.X, (int)vector2.Y);
-        public static PointF ToPointF(this Vector2 vector2) => new(vector2.X, vector2.Y);
     }
 }
